@@ -1,3 +1,13 @@
+:root{
+    --special-color:plum;
+    --second-color:aqua;
+    --dark-color:black;
+    --bright-color:red;
+}
+
+
+
+
 .container{
     max-width: 900px;
     margin: 0 auto;
@@ -23,15 +33,80 @@ nav a:visited{
     text-decoration: none;
     text-transform: uppercase;
     transition: transform .5s;
-    
 }
 
 nav a:hover,
 nav a:focus{
     text-decoration: underline;
-    transform: scale(1.2);
+    transform:scale(1.2);
 }
-nav a:active{
 
+nav a:active{
     transform: scale(1.2) translateX(10px);
+}
+
+
+/* > is direct child combinator */
+main>p{
+    font-size: 1.25rem;
+}
+/* + is the adjacent combinator */
+h2 +p{
+    color: white;
+    padding: 1rem;
+    background-color: black;
+}
+
+.stars span:hover{
+    cursor: pointer;
+}
+
+/* ~ is sibiling combinator */
+.stars span:hover~span{
+    opacity: .5;
+
+}
+
+
+a[href="#"]{
+    color: var(--special-color);
+}
+
+a[href^="http"]{
+    border-left: 6px solid var(--special-color);
+    padding-left: 1em;
+}
+/* 
+[class="google"]{
+
+} 
+*/
+
+a[ href$=".pdf"]::after{
+    content: "\2913";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--special-color);
+}
+
+h2+p::first-line{
+    color: var(--special-color);
+}
+
+h3+p::first-letter{
+    background-color: aqua;
+    color: red;
+    font-size: 1.25rem;
+    padding: .25em;
+    margin: .15em;
+}
+
+.google{
+    display: block;
+    background-color: var(--special-color);;
+    color: var(--bright-color);
+    padding: 2rem;
+    margin: 1rem;
+    width: calc(100% - 6px - 1rem - 1rem - 1rem - 2rem);
+
 }
